@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-light" aria-label="Eleventh navbar example">
+        <div class="container-fluid">
+          <a class="navbar-brand"  href="{% url 'blog-home' %}"><b>Django blog</b></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+  
+          <div class="collapse navbar-collapse" id="navbarsExample09">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'blog-home' %}">Главная</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'blog-contact' %}">Про нас</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="navbar-nav">
+          {% if user.is_authenticated %}
+            <a href="{% url 'profile' %}" class="btn btn-outline-secondary">Профиль</a>
+            <a href="{% url 'exit' %}" class="btn btn-outline-secondary">Выйти</a>
+          {% else %}
+            <a href="{% url 'reg' %}" class="btn btn-outline-secondary mr-2">Регистрация</a>
+            <a href="{% url 'user' %}" class="btn btn-outline-secondary">Войти</a>
+          {% endif %}
+        </div>
+      </nav>
+    
+      <main class="container">
+            <div class="row">
+                <div class="col-md-8">
+                  {% if messages %}
+                    {% for mess in messages  %}
+                      <div class="alert alert-success mt-2">
+                          {{ mess }}
+                      </div>
+                    {% endfor %}
+                  {% endif %}
+
+                  {% block base_section %}
+                  {% endblock base_section %}
+                </div>
+               
+                <aside class="col-md-4">
+                    <div class="p-3">
+                        {% block aside_section %}
+                        {% endblock aside_section %}
+                    </div>
+
+                    <div class="p-3 mb-3">
+                        <img src="https://itproger.com/img/courses/1539259763.jpg" class="img-fluid img-thumbnail mb-2">
+                        <button class="btn btn-warning">Начать изучение</button>
+                    </div>
+                </aside> 
+            </div>   
+            
+      </main>
+
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+{% extends 'app_blog/base.html' %}
+
+{% block base_section %}
+    
+    {% for post in news %}
+        <div class="alert alert-dark mt-3">
+            <h1>{{ post.title }}</h1>
+            <p>{{ post.text }}</p>
+            <span class="text-muted">Публикация: {{ post.date|date:"j F Y, время, H:i:s"  }} </span>
+            <p><b>Автор:</b><mark>{{ post.author }}</mark></p>
+
+        </div>
+    {% endfor %}
+{% endblock base_section %}
+
+{% block aside_section %}
+
+    <h3><b>10 Фильмов и сериалов для программистов</b></h3>
+    <img src="https://itproger.com/img/news/1477674462.jpg" class="img-fluid img-thumbnail mb-1">
+    <p>Когда становишься программистом очень хочется посмотрет какие фильмы
+        или же сериалы на эту тему. Топ 10 фильмов про программистов.
+    </p>
+    <a href="https://itproger.com/news/1" target="_blank">
+        <button class="btn btn-warning">Посмотреть</button>
+    </a>
+
+{% endblock aside_section %}
+
+   

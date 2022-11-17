@@ -1,0 +1,31 @@
+{% extends 'app_blog/base.html' %}
+
+{% block base_section %}
+    <div class="form-section">
+        <h2> Кабинет пользователя</h2>
+        
+      <img class="mr-2 rounded"  style = "width:100px; height:70px" src="{{ user.profile.img.url }}">
+    
+
+      <p class="pb-3 mb-0 small lh-sm border-bottom">
+        <strong class="d-block text-gray-dark">@{{ user.username }}</strong>
+        <b>Email:</b> {{ user.email }}
+      </p>
+        
+    </div>
+
+{% endblock base_section %}
+
+    
+{% block aside_section %}
+    <h3><b>ИИ на Python для распознавания голоса и выполнения команд</b></h3>
+    <img src="https://itproger.com/img/news/1545671924.jpg" class="img-fluid img-thumbnail mb-1">
+    <p>На Python можно строить как простые программы, так и сложные ИИ системы.
+        В данной статье мы покажем как реализовать 
+        распознавание голоса и выполнение различных команд.
+    </p>
+    <a href="https://itproger.com/news/ii-na-python-dlya-raspoznavaniya-golosa-i-vipolneniya-komand" target="_blank">
+        <button class="btn btn-warning">Посмотреть</button>
+    </a>
+
+{% endblock aside_section %}
